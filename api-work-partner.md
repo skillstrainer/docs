@@ -8,7 +8,7 @@ This documentation is intended for the Work Partners of SkillsTrainer who wish t
 Prerequisites
 -------------
 
-The client can access ST APIs with the URL ***https://adminapi.skillstrainer.in/api/endpoint***
+The client can access ST APIs with the URL ***https://webapp.skillsscale.in/api/endpoint***
 
 The client will be given a set of auth credentials i.e. an **access key** and a **secret key**. Any request sent from the client to any ST API should have these credentials present in the headers under the keys:
 
