@@ -234,7 +234,7 @@ Data can be fetched directly from ST's Hasura GraphQL Engine. Data is fetched us
 
 The Client needs to make the following network call to execute queries / mutations and CRUD the required data and will receive the execution result in JSON as the response.
 
-Endpoint: <https://graphql.skillstrainer.in/v1/graphql>
+Endpoint: <https://graphql.skillsscale.in/v1/graphql>
 
 Method: **POST**
 
