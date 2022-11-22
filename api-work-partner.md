@@ -219,7 +219,7 @@ Enrolling a user in a course requires a coupon code which will be provided by Sk
 - Payload:
   - ```
     {
-      "coupon_code": "&lt;COUPON_CODE&gt;",
+      "coupon_code": "<COUPON_CODE>",
     }
     ```
 - Response: The returned ID is the coupon application ID
