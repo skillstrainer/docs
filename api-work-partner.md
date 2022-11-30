@@ -207,9 +207,9 @@ APIs
     }
     ```
 
-### Enrol user in a course
+### Enrol user in a paid course
 
-Enrolling a user in a course requires a coupon code which will be provided by SkillsTrainer.
+Enrolling a user in a paid course requires a coupon code which will be provided by SkillsTrainer.
 
 - Endpoint: **/apply_coupon**
 - Method: **POST**
@@ -229,6 +229,132 @@ Enrolling a user in a course requires a coupon code which will be provided by Sk
       "data": {
         "id": 33453
       }
+    }
+    ```
+
+### Get a user's course data
+
+- Endpoint: /get_moodle_courses_for_user
+- Method: POST
+- Payload:
+  - ```
+    {
+      "user_id": 28
+    }  
+    ```
+- Response: Moodle data for the courses is returned
+  - ```
+    {
+      "data": [
+        {
+          "category": 1,
+          "completed": false,
+          "completionhascriteria": true,
+          "completionusertracked": true,
+          "displayname": "Work Readiness",
+          "enablecompletion": true,
+          "enddate": 2038501800,
+          "enrolledusercount": 20933,
+          "format": "topics",
+          "fullname": "Work Readiness",
+          "hidden": false,
+          "id": 58,
+          "idnumber": "118047320200623082120",
+          "isfavourite": false,
+          "lang": "",
+          "lastaccess": 1663394223,
+          "marker": 0,
+          "overviewfiles": [
+            {
+              "filename": "JOB Readiness.png",
+              "filepath": "/",
+              "filesize": 254731,
+              "fileurl": "https://lms.skillstrainer.in/moodle/webservice/pluginfile.php/23901/course/overviewfiles/JOB%20Readiness.png",
+              "mimetype": "image/png",
+              "timemodified": 1590081005
+            }
+          ],
+          "progress": 47.05882352941176,
+          "shortname": "Work Readiness Course",
+          "showgrades": true,
+          "startdate": 1564425000,
+          "summary": "",
+          "summaryformat": 1,
+          "visible": 1
+        },
+        {
+          "category": 1,
+          "completed": false,
+          "completionhascriteria": true,
+          "completionusertracked": true,
+          "displayname": "वर्क  रेडीनेस - हिंदी ",
+          "enablecompletion": true,
+          "enddate": 1693954800,
+          "enrolledusercount": 1186,
+          "format": "topics",
+          "fullname": "वर्क  रेडीनेस - हिंदी ",
+          "hidden": false,
+          "id": 60,
+          "idnumber": "1450",
+          "isfavourite": false,
+          "lang": "",
+          "lastaccess": 1660022562,
+          "marker": 0,
+          "overviewfiles": [
+            {
+              "filename": "JOB Readiness.png",
+              "filepath": "/",
+              "filesize": 254731,
+              "fileurl": "https://lms.skillstrainer.in/moodle/webservice/pluginfile.php/25031/course/overviewfiles/JOB%20Readiness.png",
+              "mimetype": "image/png",
+              "timemodified": 1590081036
+            }
+          ],
+          "progress": 6.25,
+          "shortname": "WRP_Hindi",
+          "showgrades": true,
+          "startdate": 1567810800,
+          "summary": "",
+          "summaryformat": 1,
+          "visible": 1
+        },
+        {
+          "category": 11,
+          "completed": false,
+          "completionhascriteria": false,
+          "completionusertracked": true,
+          "displayname": "Retail Sales Associate (Sign Language)",
+          "enablecompletion": true,
+          "enddate": 0,
+          "enrolledusercount": 4,
+          "format": "topics",
+          "fullname": "Retail Sales Associate (Sign Language)",
+          "hidden": false,
+          "id": 164,
+          "idnumber": "",
+          "isfavourite": false,
+          "lang": "",
+          "lastaccess": 1660888412,
+          "marker": 0,
+          "overviewfiles": [
+            {
+              "filename": "RTA New.png",
+              "filepath": "/",
+              "filesize": 960969,
+              "fileurl": "https://lms.skillstrainer.in/moodle/webservice/pluginfile.php/1595639/course/overviewfiles/RTA%20New.png",
+              "mimetype": "image/png",
+              "timemodified": 1659245523
+            }
+          ],
+          "progress": 0,
+          "shortname": "Retail Sales Associate (Sign Language)",
+          "showgrades": true,
+          "startdate": 1659292200,
+          "summary": "",
+          "summaryformat": 1,
+          "visible": 1
+        }
+      ]
     }
     ```
 
