@@ -1,23 +1,20 @@
 # API Documentation for Work Partner
 
-Overview
---------
+## Overview
 
 This documentation is intended for the Work Partners of SkillsTrainer who wish to consume SkillsTrainer's APIs and data for their internal purposes. Henceforth, the respective Work Partner will be referred to as the **Client**, the users associated to the Work Partner as **User** and SkillsTrainer as **ST**.
 
-Prerequisites
--------------
+## Prerequisites
 
 The client can access ST APIs with the URL ***https://webapp.skillsscale.in/api/endpoint***
 
 The client will be given a set of auth credentials i.e. an **access key** and a **secret key**. Any request sent from the client to any ST API should have these credentials present in the headers under the keys:
 
-**ST-ACCESS-KEY** = *&lt;access key&gt;*
+**ST-ACCESS-KEY** = _&lt;access key&gt;_
 
-**ST-SECRET-KEY** = *&lt;secret key&gt;*
+**ST-SECRET-KEY** = _&lt;secret key&gt;_
 
-Basic Data flow
----------------
+## Basic Data flow
 
 - For User
 
@@ -26,30 +23,34 @@ Basic Data flow
     - User sends Client API signup data
     - Client API sends the signup data to ST API and receives basic profile data and auth tokens
     - Client sends data back to the User
+
   - Login
 
     - User sends Client API login data
     - Client API sends the login data to ST API and receives basic profile data and auth tokens
     - Client sends data back to the User
+
   - Token validation
 
     - User sends tokens to the Client API
     - Client API sends the tokens for validation to ST API and receives basic profile data and auth tokens
     - Client sends data back to the User
+
   - Data fetching
 
     - User inserts the tokens in the request headers to access ST GraphQL
+
 - For Client
 
   - Login
 
     - Client API sends the login data to ST API and receives auth tokens
+
   - Data fetching and API consumption
 
     - Client inserts the tokens in the request headers to access ST APIs and ST GraphQL
 
-APIs
-----
+## APIs
 
 ### User signup
 
@@ -64,6 +65,7 @@ APIs
       "password": "<PASSWORD>"
     }
     ```
+
 - Response
 
   - ```
@@ -97,6 +99,7 @@ APIs
         "password": "<PASSWORD>"
     }
     ```
+
 - Response
 
   - ```
@@ -154,7 +157,8 @@ APIs
 
   - **jwt_token**: &lt;jwt_token&gt;
   - **access_token**: &lt;access_token&gt;
-- Payload: *None*
+
+- Payload: _None_
 - Response:
 
   - ```
@@ -240,7 +244,7 @@ Enrolling a user in a paid course requires a coupon code which will be provided 
   - ```
     {
       "user_id": 28
-    }  
+    }
     ```
 - Response: Moodle data for the courses is returned
   - ```
@@ -358,8 +362,25 @@ Enrolling a user in a paid course requires a coupon code which will be provided 
     }
     ```
 
-Data Fetching
--------------
+### Get a user's certificate
+
+- Endpoint: /get_moodle_certificate
+- Method: POST
+- Payload:
+  - ```
+    {
+      "user_id": 28,
+      "course_id": 50
+    }
+    ```
+- Response:
+  - ```
+    {
+      "download_link": "https://adminskillstrainerprod.s3.ap-south-1.amazonaws.com/certificates/1676631049493"
+    }
+    ```
+
+## Data Fetching
 
 Data can be fetched directly from ST's Hasura GraphQL Engine. Data is fetched using **queries** and created, updated or deleted using **mutations** (For more information on GraphQL usage, visit [https://hasura.io/docs/latest/index/](https://hasura.io/docs/latest/index/)).
 
@@ -419,6 +440,7 @@ The Client can use the following queries / mutations to make frequently required
     }
 
     ```
+
 - Fetch User data
 
   - ```
@@ -595,6 +617,7 @@ The Client can use the following queries / mutations to make frequently required
       }
     }
     ```
+
 - Fetch User course progress
 
   - ```
@@ -621,6 +644,25 @@ The Client can use the following queries / mutations to make frequently required
             completion_date
             user_id
           }
+        }
+      }
+    }
+    ```
+
+- Fetch course modules
+
+  - ```
+    query getCourseModules ($course_id: Int) {
+      courses_course_section (
+        where: {
+          course_id: { _eq: $course_id }
+        }
+      ) {
+        id
+        name
+        coursesec {
+          id
+          name
         }
       }
     }
