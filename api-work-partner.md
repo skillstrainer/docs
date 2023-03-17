@@ -63,7 +63,7 @@ The client will be given a set of auth credentials i.e. an **access key** and a 
       "full_name": "<FULL NAME>",
       "id": "<EMAIL OR PHONE NUMBER>",
       "password": "<PASSWORD>",
-      "source": "<YOUR_COMPANY_NAME>
+      "source": "<YOUR_COMPANY_NAME>"
     }
     ```
 
