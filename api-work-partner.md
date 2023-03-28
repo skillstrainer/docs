@@ -381,6 +381,122 @@ Enrolling a user in a paid course requires a coupon code which will be provided 
     }
     ```
 
+### Delete users
+
+- Endpoint: /delete_users
+- Method: POST
+- Payload:
+  - ```
+    {
+      access_secret: "<PROVIDED_ACCESS_SECRET>",
+      "user_ids": [28, 29, 31] // List of user IDs
+    }
+    ```
+- Repsonse:
+
+  - ```
+    {
+      "data": {
+        "hasura_deletion_response": {
+          "delete_courses_batch_trainee_attendences": {
+            "affected_rows": 0
+          },
+          "delete_courses_bulk_certificates_details": {
+            "affected_rows": 0
+          },
+          "delete_courses_certificates": {
+            "affected_rows": 0
+          },
+          "delete_courses_course_criteria_users": {
+            "affected_rows": 0
+          },
+          "delete_courses_course_module_completion": {
+            "affected_rows": 0
+          },
+          "delete_courses_course_module_user_attempt": {
+            "affected_rows": 0
+          },
+          "delete_courses_course_scorm_track_data": {
+            "affected_rows": 0
+          },
+          "delete_courses_partner_project_users": {
+            "affected_rows": 0
+          },
+          "delete_courses_partner_users": {
+            "affected_rows": 0
+          },
+          "delete_courses_scholarship_partner_user": {
+            "affected_rows": 0
+          },
+          "delete_courses_social_metadata": {
+            "affected_rows": 1
+          },
+          "delete_courses_st_user_coupons": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_academic_qualifications": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_address": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_batch_enrollment": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_batch_slots": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_course_complete": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_course_enrolment": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_course_order": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_course_question_attemept": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_course_quiz_attempt": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_course_subscription": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_family_details": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_identity_documents": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_tags": {
+            "affected_rows": 0
+          },
+          "delete_courses_user_work_details": {
+            "affected_rows": 0
+          },
+          "delete_courses_users": {
+            "affected_rows": 1
+          }
+        },
+        "moodle_deletion_response": [
+          {
+            "response": null,
+            "user_id": 589362
+          }
+        ],
+        "wso2_deletion_response": [
+          {
+            "response": "",
+            "user_id": 589362
+          }
+        ]
+      },
+      "success": true
+    }
+    ```
+
 ## Data Fetching
 
 Data can be fetched directly from ST's Hasura GraphQL Engine. Data is fetched using **queries** and created, updated or deleted using **mutations** (For more information on GraphQL usage, visit [https://hasura.io/docs/latest/index/](https://hasura.io/docs/latest/index/)).
