@@ -497,6 +497,86 @@ Enrolling a user in a paid course requires a coupon code which will be provided 
     }
     ```
 
+### Get user registration details
+
+- Endpoint: /get_user_details
+- Method: POST
+- Payload:
+  - ```
+    {
+      access_secret: "<PROVIDED_ACCESS_SECRET>",
+      "user_emails": ["abhishek.challa.97@gmail.com"]
+    }
+    ```
+- Repsonse:
+  ```
+  {
+    "data": [
+      {
+        "db_user": {
+          "email": "abhishek.challa.97@gmail.com",
+          "id": 589402,
+          "idp_user_id": "db580888-ef35-4110-bafc-ecc81bd869e6",
+          "idp_user_name": "SKILLSTRAINER/abhishekchalla-1680069614",
+          "source": "web"
+        },
+        "email": "abhishek.challa.97@gmail.com",
+        "idp_user": {
+          "emails": [
+            "abhishek.challa.97@gmail.com"
+          ],
+          "id": "db580888-ef35-4110-bafc-ecc81bd869e6",
+          "is_associated_to_db_user": true,
+          "meta": {
+            "created": "2023-03-29T06:00:15.264787Z",
+            "lastModified": "2023-03-29T06:00:15.264787Z",
+            "location": "https://localhost:9443/scim2/Users/db580888-ef35-4110-bafc-ecc81bd869e6",
+            "resourceType": "User"
+          },
+          "name": {
+            "familyName": "Abhishek Challa",
+            "givenName": "Abhishek"
+          },
+          "phoneNumbers": [
+            {
+              "type": "mobile",
+              "value": "234234222"
+            }
+          ],
+          "roles": [
+            {
+              "display": "everyone"
+            }
+          ],
+          "userName": "SKILLSTRAINER/abhishekchalla-1680069614"
+        },
+        "moodle_user": {
+          "auth": "manual",
+          "confirmed": true,
+          "department": "",
+          "email": "abhishek.challa.97@gmail.com",
+          "firstaccess": 0,
+          "firstname": "Abhishek",
+          "fullname": "Abhishek Abhishek",
+          "id": 859172,
+          "is_associated_to_db_user": true,
+          "lang": "en",
+          "lastaccess": 0,
+          "lastname": "Abhishek",
+          "mailformat": 1,
+          "profileimageurl": "https://lms.skillstrainer.in/moodle/theme/image.php/adaptable/core/1678347801/u/f1",
+          "profileimageurlsmall": "https://lms.skillstrainer.in/moodle/theme/image.php/adaptable/core/1678347801/u/f2",
+          "suspended": false,
+          "theme": "",
+          "timezone": "99",
+          "username": "abhishekchalla-1680069614"
+        }
+      }
+    ],
+    "success": true
+  }
+  ```
+
 ## Data Fetching
 
 Data can be fetched directly from ST's Hasura GraphQL Engine. Data is fetched using **queries** and created, updated or deleted using **mutations** (For more information on GraphQL usage, visit [https://hasura.io/docs/latest/index/](https://hasura.io/docs/latest/index/)).
