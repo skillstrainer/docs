@@ -365,18 +365,21 @@ Enrolling a user in a paid course requires a coupon code which will be provided 
 
 ### Get a user's certificate
 
-- Endpoint: /get_moodle_certificate
+- Endpoint: /complete_course
 - Method: POST
 - Payload:
   - ```
     {
-      "user_id": 28,
-      "course_id": 50
+      "access_secret": <YOUR-ACCESS-SECRET>,
+      "user_id": 590254,
+      "course_id": 50,
+      "force_complete": true,
     }
     ```
 - Response:
   - ```
     {
+      "success": true,
       "download_link": "https://adminskillstrainerprod.s3.ap-south-1.amazonaws.com/certificates/1676631049493"
     }
     ```
